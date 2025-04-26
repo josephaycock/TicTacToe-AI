@@ -1,4 +1,5 @@
 import math
+import random
 
 class MinimaxAI:
     def best_move(self, board_obj):
@@ -40,3 +41,18 @@ class MinimaxAI:
                 board_obj.board[row][col] = ""
                 best = min(score, best)
             return best
+        
+class RandomAI:
+    def best_move(self, board_obj):
+        return random.choice(board_obj.available_moves())
+    
+class MediumAI:
+    def __init__(self, randomness=0.5):
+        self.randomness = randomness
+        self.optimal = MinimaxAI()
+
+    def best_move(self, board_obj):
+        if random.random() < self.randomness:
+            return random.choice(board_obj.available_moves())
+        else:
+            return self.optimal.best_move(board_obj)
