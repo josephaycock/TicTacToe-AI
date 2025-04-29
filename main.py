@@ -10,11 +10,11 @@ screen = pygame.display.set_mode((WIDTH, HEIGHT))
 pygame.display.set_caption("Tic Tac Toe AI")
 
 start_btn = Button("Start Game", WIDTH//2 - 100, HEIGHT - 100, 200, 70)
-easy_btn         = Button("Easy",              WIDTH//2 - 100, HEIGHT//2 - 120, 200, 70)
-med_btn          = Button("Medium",            WIDTH//2 - 100, HEIGHT//2     , 200, 70)
-hard_btn         = Button("Hard",              WIDTH//2 - 100, HEIGHT//2 + 120, 200, 70)
-play_again_btn   = Button("Play Again",        WIDTH//2 - 100, HEIGHT//2 +  60, 200, 70)
-change_diff_btn  = Button("Change Difficulty", WIDTH//2 - 150, HEIGHT//2 + 140, 300, 70)
+easy_btn = Button("Easy", WIDTH//2 - 100, HEIGHT//2 - 120, 200, 70)
+med_btn = Button("Medium", WIDTH//2 - 100, HEIGHT//2     , 200, 70)
+hard_btn = Button("Hard", WIDTH//2 - 100, HEIGHT//2 + 120, 200, 70)
+play_again_btn = Button("Play Again", WIDTH//2 - 100, HEIGHT//2 +  60, 200, 70)
+change_diff_btn = Button("Change Difficulty", WIDTH//2 - 150, HEIGHT//2 + 140, 300, 70)
 state = "menu"
 game = GameManager()
 
@@ -25,7 +25,7 @@ while True:
         title_lines = ["tic", "tac", "toe"]
         for idx, word in enumerate(title_lines):
             word_render = FONT.render(word, True, TEXT_COLOR)
-            # Spacing adjusted for bigger font
+            
             screen.blit(word_render, (WIDTH // 2 - word_render.get_width() // 2, 100 + idx * 100))
         start_btn.draw(screen)
 
@@ -48,7 +48,7 @@ while True:
         msg_lines = ["it's a", "draw!"] if game.winner == "Draw" else [f"{game.winner}", "wins!"]
         for idx, word in enumerate(msg_lines):
             msg_render = FONT.render(word, True, TEXT_COLOR)
-            # Spacing adjusted for bigger font
+            
             screen.blit(msg_render, (WIDTH // 2 - msg_render.get_width() // 2, 100 + idx * 100))
         play_again_btn.draw(screen)
         change_diff_btn.draw(screen)
